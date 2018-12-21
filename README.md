@@ -9,6 +9,7 @@
 * `bundle install`
 * Set `api-out` in `avicus.yml` to where you want the classes to go.
 * Ensure the config in `avicus.yml` and `database.yml` is set to your details
+* Modify details in `config/application.rb` to your details :)
 * Run `rake graphql:generate` to generate the classes.
 * When the classes are loaded into the IDE, there will be a lot of unneeded imports, simply run Code -> Reformat Code to fix all errors
 
