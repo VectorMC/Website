@@ -19,3 +19,5 @@
 
 ## Extra
 * Look through config folder for potential assets/other text you need to change
+* `app/assets` for logos
+* `apps/views` for layout modifications
