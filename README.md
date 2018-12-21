@@ -16,3 +16,6 @@
 ## How to Test:
 * Install required gems with `bundle install`
 * Run the `localhost:3000` server via `rails s`
+
+## Extra
+* Look through config folder for potential assets/other text you need to change
