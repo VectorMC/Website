@@ -41,7 +41,7 @@ gem 'daemons'
 gem 'discordrb', git: 'git@github.com:meew0/discordrb.git'
 
 # API
-gem 'graphql'
+gem 'graphql', '1.7.4'
 gem 'graphql_java_gen', git: 'git@github.com:Avicus/graphql_java_gen.git'
 gem 'graphql-batch'
 
