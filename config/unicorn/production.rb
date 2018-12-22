@@ -15,14 +15,14 @@ stderr_path "#{shared_dir}/log/unicorn.stderr.log"
 stdout_path "#{shared_dir}/log/unicorn.stdout.log"
 
 case mode
-  when 'main'
-    listen "#{shared_dir}/tmp/sockets/main.sock", :backlog => 64
-    worker_processes 8
-  when 'api'
-    listen "#{shared_dir}/tmp/sockets/api.sock", :backlog => 64
-    worker_processes 4
-  else
-    raise "Weird mode: #{mode}"
+when 'main'
+  listen "#{shared_dir}/tmp/sockets/main.sock", :backlog => 64
+  worker_processes 8
+when 'api'
+  listen "#{shared_dir}/tmp/sockets/api.sock", :backlog => 64
+  worker_processes 4
+else
+  raise "Weird mode: #{mode}"
 end
 
 # Set master PID location

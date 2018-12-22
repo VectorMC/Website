@@ -205,7 +205,7 @@ class Rank < ActiveRecord::Base
     end
 
     begin
-      value = path.inject(perms) { |a, b| a[b] }
+      value = path.inject(perms) {|a, b| a[b]}
       raise('nil') if value == nil
       return value
     rescue

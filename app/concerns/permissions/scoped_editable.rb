@@ -34,6 +34,6 @@ module Permissions::ScopedEditable
 
   # Checks if a user has permission to edit any of the fields defined in the `perm_fields` hash.
   def can_edit_any?(user)
-    (self.class.perm_fields.collect { |f| f.to_s }).any? { |field| can_edit?(user, field) }
+    (self.class.perm_fields.collect {|f| f.to_s}).any? {|field| can_edit?(user, field)}
   end
 end

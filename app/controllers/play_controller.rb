@@ -6,7 +6,7 @@ class PlayController < ApplicationController
 
   def index
     @player_count = get_player_count
-    @servers = Server.all.select { |server| server.online? && !server.permissible }.sort { |a, b| b.player_count - a.player_count }
+    @servers = Server.all.select {|server| server.online? && !server.permissible}.sort {|a, b| b.player_count - a.player_count}
   end
 
   def game
@@ -27,6 +27,6 @@ class PlayController < ApplicationController
   end
 
   def get_player_count
-    Server.all.select { |server| server.online? && !server.permissible }.map(&:real_player_count).sum
+    Server.all.select {|server| server.online? && !server.permissible}.map(&:real_player_count).sum
   end
 end

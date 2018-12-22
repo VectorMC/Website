@@ -27,7 +27,7 @@ module ForumsHelper
 
   # Filter an array of categories to only ones that a user can view.
   def self.filter_categories(user, *categories)
-    categories.flatten.delete_if { |c| !c.can_view?(user) }
+    categories.flatten.delete_if {|c| !c.can_view?(user)}
   end
 
   # Get an array of categories that a user can view.

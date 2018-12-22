@@ -58,7 +58,7 @@ class ServerGroup < ActiveRecord::Base
     end
 
     begin
-      value = path.inject(data) { |a, b| a[b] }
+      value = path.inject(data) {|a, b| a[b]}
       raise('nil') if value == nil
       return value
     rescue

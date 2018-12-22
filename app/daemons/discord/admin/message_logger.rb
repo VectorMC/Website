@@ -2,7 +2,7 @@
 module MessageLogger
   extend Discordrb::EventContainer
 
-  @where = $config[:main_guild].channels.select { |chan| chan.id == $avicus['discord']['channels']['history'].to_i }[0]
+  @where = $config[:main_guild].channels.select {|chan| chan.id == $avicus['discord']['channels']['history'].to_i}[0]
 
   message_cache = {}
 

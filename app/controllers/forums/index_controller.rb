@@ -90,7 +90,7 @@ class Forums::IndexController < ApplicationController
     unless params[:query].blank?
       if params[:query].size >= 3
         revisions = Revision.select(:discussion_id).where(:active => 1).where('MATCH (title,body) AGAINST (? IN BOOLEAN MODE)', params[:query])
-        ids = revisions.map { |r| r.discussion_id }
+        ids = revisions.map {|r| r.discussion_id}
 
         @discussions = @discussions.where('id IN (?)', ids)
       else

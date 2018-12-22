@@ -149,6 +149,7 @@ class RegistrationsController < ApplicationController
   end
 
   private
+
   def load_parent
     @tournament = Tournament.find_by_slug(params[:tournament_id])
   end

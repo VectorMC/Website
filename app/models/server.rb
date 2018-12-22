@@ -49,7 +49,7 @@ class Server < ActiveRecord::Base
   # Get all users on this server.
   def players
     if status && status['players']
-      status['players'].map { |id| User.find(id) }
+      status['players'].map {|id| User.find(id)}
     else
       []
     end

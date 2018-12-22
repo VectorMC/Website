@@ -37,12 +37,12 @@ module StatsHelper
   # Convert a stats period to a human friendly string.
   def period_to_name(period)
     case period
-      when 0
-        'Weekly'
-      when 1
-        'Monthly'
-      when 2
-        'Overall'
+    when 0
+      'Weekly'
+    when 1
+      'Monthly'
+    when 2
+      'Overall'
     end
   end
 end

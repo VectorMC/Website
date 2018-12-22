@@ -102,7 +102,7 @@ module Users::DetailActions
       Dir.mkdir(directory) unless File.exists?(directory)
 
       path = File.join(directory, file_name)
-      File.open(path, 'wb') { |f| f.write(file.read) }
+      File.open(path, 'wb') {|f| f.write(file.read)}
 
       @user_details.cover_art = '/uploads/' + file_name
     elsif input[:cover_art] != 'Custom'

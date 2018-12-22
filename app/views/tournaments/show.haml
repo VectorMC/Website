@@ -111,7 +111,6 @@
               Registration Closed
 
 
-
         %a.btn.btn-info{:href => '/tournaments'} Tournaments
         - if @tournament.can_execute?(current_user, :update) || @tournament.can_execute?(current_user, :destroy)
           .btn-group

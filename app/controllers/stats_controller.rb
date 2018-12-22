@@ -12,12 +12,12 @@ class StatsController < ApplicationController
 
     # Period
     case params[:period]
-      when 'monthly'
-        period = 1
-      when 'overall'
-        period = 2
-      else
-        period = 0
+    when 'monthly'
+      period = 1
+    when 'overall'
+      period = 2
+    else
+      period = 0
     end
     @entries = @entries.where(:period => period)
 
@@ -67,12 +67,12 @@ class StatsController < ApplicationController
 
     # Period
     case params[:period]
-      when 'monthly'
-        period = 1
-      when 'overall'
-        period = 2
-      else
-        period = 0
+    when 'monthly'
+      period = 1
+    when 'overall'
+      period = 2
+    else
+      period = 0
     end
     @entries = @entries.where(:period => period)
 

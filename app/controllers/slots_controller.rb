@@ -26,11 +26,11 @@ class SlotsController < ApplicationController
     100.times do |t|
       break if start > maxTime
       times << start
-      start+=30
+      start += 30
     end
     @times = {}
     times.each do |t|
-      @times[Time.at(t*60).utc.strftime('%H:%M')] = t
+      @times[Time.at(t * 60).utc.strftime('%H:%M')] = t
     end
   end
 

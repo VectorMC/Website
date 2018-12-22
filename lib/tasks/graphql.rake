@@ -24,7 +24,7 @@ namespace :graphql do
                            GraphQLJavaGen::Scalar.new(
                                type_name: 'DateTime',
                                java_type: 'DateTime',
-                               deserialize_expr: ->(expr) { "DateTime.parse(jsonAsString(#{expr}, key))" },
+                               deserialize_expr: ->(expr) {"DateTime.parse(jsonAsString(#{expr}, key))"},
                                imports: ['org.joda.time.DateTime'],
                            )
                        ],

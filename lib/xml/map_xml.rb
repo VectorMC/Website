@@ -30,7 +30,7 @@ class MapXml
     versions = {}
     versions['All Versions'] = 'all'
     versions[self.version + ' (Current Version)'] = 'current'
-    MapRating.where(map_slug: self.slug).select(:map_version).map(&:map_version).uniq.sort_by { |ver| ver }.reverse!.each do |version|
+    MapRating.where(map_slug: self.slug).select(:map_version).map(&:map_version).uniq.sort_by {|ver| ver}.reverse!.each do |version|
       versions[version] = version.downcase.gsub('.', '_') unless version == self.version
     end
     versions
@@ -59,7 +59,7 @@ class MapXml
 
     ratings = {}
     5.times do |t|
-      ratings[t+1] = ratings_query.where(rating: t+1).size
+      ratings[t + 1] = ratings_query.where(rating: t + 1).size
     end
     ratings
   end
@@ -88,15 +88,15 @@ class MapXml
 
   # Get the path to the map.png from the map directory server.
   def png_path
-    path = @path[0...@path.length-3] + 'png'
-    path_remote = @path_remote[0...@path_remote.length-3] + 'png'
+    path = @path[0...@path.length - 3] + 'png'
+    path_remote = @path_remote[0...@path_remote.length - 3] + 'png'
     File.exists?(path) ? path_remote : 'https://maps.avicus.net' + '/default_map.png' # May need configured
   end
 
   # Get the path to the map_banner.png from the map directory server.
   def banner_path
-    path = @path[0...@path.length-4] + '_banner.png'
-    path_remote = @path_remote[0...@path_remote.length-4] + '_banner.png'
+    path = @path[0...@path.length - 4] + '_banner.png'
+    path_remote = @path_remote[0...@path_remote.length - 4] + '_banner.png'
     File.exists?(path) ? path_remote : 'https://maps.avicus.net' + '/default_map_banner.png' # May need configured
   end
 

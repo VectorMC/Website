@@ -32,7 +32,7 @@ namespace :posts do
         post.body = revision.body[0..60000]
         post.stickied = revision.stickied
         post.deleted = revision.archived
-        post.archived = !post.stickied? && (Time.now -  revision.created_at) > 1.month
+        post.archived = !post.stickied? && (Time.now - revision.created_at) > 1.month
         post.locked = revision.locked
         post.created_at = discussion.created_at
         post.updated_at = revision.created_at
@@ -66,7 +66,7 @@ namespace :posts do
     ActiveRecord::Base.record_timestamps = false
 
     Reply.all.order('created_at DESC').each do |reply|
-      existing = Post.select(:id).where(:uuid => reply.id.to_s.each_byte.map { |b| b.to_s(16) }.join[0..7]).first
+      existing = Post.select(:id).where(:uuid => reply.id.to_s.each_byte.map {|b| b.to_s(16)}.join[0..7]).first
 
       if existing && existing.versions.size != reply.revisions.size
         puts "Deleting outdated post #{existing.uuid}"
@@ -79,7 +79,7 @@ namespace :posts do
           post = Post.new
           post.author_id = revision.user_id
           post.parent_id = Post.find_by_uuid(reply.discussion.uuid).id if reply.discussion
-          post.ancestor_id = Post.find_by_uuid(reply.reply_id.to_s.each_byte.map { |b| b.to_s(16) }.join[0..7]).id if reply.reply_id
+          post.ancestor_id = Post.find_by_uuid(reply.reply_id.to_s.each_byte.map {|b| b.to_s(16)}.join[0..7]).id if reply.reply_id
 
           if post.parent.nil?
             puts "BAD PARENT: #{reply.discussion.to_json}"
@@ -99,7 +99,7 @@ namespace :posts do
         post.created_at = reply.created_at
         post.updated_at = revision.created_at
         post.category_id = revision.category_id
-        post.uuid = reply.id.to_s.each_byte.map { |b| b.to_s(16) }.join[0..7]
+        post.uuid = reply.id.to_s.each_byte.map {|b| b.to_s(16)}.join[0..7]
         PaperTrail.whodunnit = revision.user_id
 
         if post.category.nil?

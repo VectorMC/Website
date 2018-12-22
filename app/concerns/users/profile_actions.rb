@@ -63,7 +63,7 @@ module Users::ProfileActions
       @sessions.each do |ip, info|
         info[:percent] = 100 * (info[:count].to_d / @total.to_d)
       end
-      @sessions = @sessions.sort_by { |ip, hash| hash[:last] }.reverse
+      @sessions = @sessions.sort_by {|ip, hash| hash[:last]}.reverse
     end
 
     if @user.details.can_view?(current_user, :reports)
@@ -90,7 +90,7 @@ module Users::ProfileActions
         'Discord Ban' => :discord_ban
     }
 
-    @punish_types.delete_if { |t, i| !Punishment.can_issue?(current_user, i) }
+    @punish_types.delete_if {|t, i| !Punishment.can_issue?(current_user, i)}
 
     @achievements = AchievementReceiver.where(user: @user).map(&:achievement)
 
@@ -125,7 +125,7 @@ module Users::ProfileActions
 
     viewable = ForumsHelper.viewable_categories(current_user)
     @posts = Revision.where('category_id IN (?)', viewable).where(:user_id => @user.id).where(:original => 1).order('created_at DESC').to_a.flatten.paginate(:page => params[:page], :per_page => 5)
-    @posts = @posts.delete_if { |p| p.discussion.nil? }
+    @posts = @posts.delete_if {|p| p.discussion.nil?}
     render :layout => false
   end
 end

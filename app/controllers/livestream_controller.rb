@@ -8,7 +8,7 @@ class LivestreamController < ApplicationController
   def index
     channels = Livestream.all
     @online = channels.where('id IN (?)', get_cache('twitch.online-ids'))
-    @offline = (channels-@online) | (@online-channels)
+    @offline = (channels - @online) | (@online - channels)
   end
 
   def create

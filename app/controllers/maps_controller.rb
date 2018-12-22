@@ -55,7 +55,7 @@ class MapsController < ApplicationController
 
   def category_select
     @category_select = {'- Map Categories -' => nil, 'ALL MAPS' => '/maps'}
-    $categorized_maps.keys.sort_by { |cat| cat }.each do |cat|
+    $categorized_maps.keys.sort_by {|cat| cat}.each do |cat|
       @category_select[cat] = '/maps/category/' + cat
     end
   end

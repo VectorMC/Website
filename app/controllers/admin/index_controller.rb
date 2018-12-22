@@ -33,7 +33,7 @@ class Admin::IndexController < ApplicationController
         {:name => 'Server Categories', :desc => 'Manage categories of servers (for internal use).'}
     ]
 
-    @panels.delete_if { |c| !current_user.has_permission?('admin:index_controllers', :view, c[:name].downcase.tr(' ', '_'), true) }
+    @panels.delete_if {|c| !current_user.has_permission?('admin:index_controllers', :view, c[:name].downcase.tr(' ', '_'), true)}
   end
 
   def ip
@@ -65,7 +65,7 @@ class Admin::IndexController < ApplicationController
       @sessions[match.user] = info
     end
 
-    @sessions = @sessions.sort_by { |user, info| info[:last] }.reverse
+    @sessions = @sessions.sort_by {|user, info| info[:last]}.reverse
 
     @punish_types = {
         'Mute' => :mute,
@@ -82,7 +82,7 @@ class Admin::IndexController < ApplicationController
         'Discord Ban' => :discord_ban
     }
 
-    @punish_types.delete_if { |t, i| !Punishment.can_issue?(current_user, i) }
+    @punish_types.delete_if {|t, i| !Punishment.can_issue?(current_user, i)}
 
     @ip_ban = IpBan.where(ip: @session.ip).last
   end
@@ -120,7 +120,7 @@ class Admin::IndexController < ApplicationController
 
     punish_users(staff, params[:punishment][:reason], params[:punishment][:type], expires, users)
 
-    admin_log(:general, current_user, :mass_punish, "Staff: #{staff.nil? ? 'Console' : staff.username} Reason: #{params[:punishment][:reason]} Type: #{params[:punishment][:type]} Users: #{users.map { |a| a.to_s }.join(' - ')}")
+    admin_log(:general, current_user, :mass_punish, "Staff: #{staff.nil? ? 'Console' : staff.username} Reason: #{params[:punishment][:reason]} Type: #{params[:punishment][:type]} Users: #{users.map {|a| a.to_s}.join(' - ')}")
 
     flash[:notice] = 'Successfully performed mass punish.'
     redirect_to request.referer
@@ -157,7 +157,7 @@ class Admin::IndexController < ApplicationController
       )
       flash[:notice] = 'Successfully created IP ban.'
       redirect_to request.referer
-      admin_log(:general, current_user, :create_ip_ban, "Staff: #{staff.nil? ? 'Console' : staff.to_s} Reason: #{params[:ip_ban][:reason]} Exlused Users: #{users.map { |a| a.to_s }.join(' - ')}")
+      admin_log(:general, current_user, :create_ip_ban, "Staff: #{staff.nil? ? 'Console' : staff.to_s} Reason: #{params[:ip_ban][:reason]} Exlused Users: #{users.map {|a| a.to_s}.join(' - ')}")
     else
       redirect_if_fail(IpBan.can_execute?(current_user, :update), request.referer, :action); return if performed?
       res.reason = params[:ip_ban][:reason] unless params[:ip_ban][:reason].blank?
@@ -172,7 +172,7 @@ class Admin::IndexController < ApplicationController
       res.save
       flash[:notice] = 'Successfully updated IP ban.'
       redirect_to request.referer
-      admin_log(:general, current_user, :update_ip_ban, "Staff: #{staff.nil? ? 'Console' : staff.to_s} Reason: #{params[:ip_ban][:reason]} Exlused Users: #{users.map { |a| a.to_s }.join(' - ')}")
+      admin_log(:general, current_user, :update_ip_ban, "Staff: #{staff.nil? ? 'Console' : staff.to_s} Reason: #{params[:ip_ban][:reason]} Exlused Users: #{users.map {|a| a.to_s}.join(' - ')}")
     end
   end
 

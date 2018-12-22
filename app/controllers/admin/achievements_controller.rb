@@ -78,6 +78,7 @@ class Admin::AchievementsController < Admin::IndexController
   end
 
   private
+
   def set_achievement
     if params[:id].blank?
       @achievement = Achievement.find(params[:achievement_id])

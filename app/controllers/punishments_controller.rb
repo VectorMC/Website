@@ -60,7 +60,7 @@ class PunishmentsController < ApplicationController
         'Discord Ban' => :discord_ban
     }
 
-    @punish_types.delete_if { |t, i| !Punishment.can_issue?(current_user, i) }
+    @punish_types.delete_if {|t, i| !Punishment.can_issue?(current_user, i)}
 
     @editable = editable_fields(@punishment)
   end

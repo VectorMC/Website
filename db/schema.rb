@@ -244,10 +244,10 @@ ActiveRecord::Schema.define(version: 20171203093524) do
     t.index ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index"
     t.index ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index"
     t.index ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index"
-    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", length: { params: 255 }
+    t.index ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", length: {params: 255}
     t.index ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index"
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
-    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: { message: 255 }
+    t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: {message: 255}
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 

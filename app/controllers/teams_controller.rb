@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
 
   def index
     all = Team.all
-    all = all.sort_by { |t| t.members.size }.reverse! unless all.first.nil?
+    all = all.sort_by {|t| t.members.size}.reverse! unless all.first.nil?
 
     require 'will_paginate/array'
     @teams = all.paginate(:page => params[:page], :per_page => 30)
@@ -89,7 +89,7 @@ class TeamsController < ApplicationController
 
   def save_image(team, data)
     require 'base64'
-    image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
+    image_data = Base64.decode64(data['data:image/png;base64,'.length..-1])
 
     File.open("#{Rails.root}/public/emblems/#{team.tag}.#{team.updated_at.to_i}.png", 'wb') do |f|
       f.write image_data
@@ -253,6 +253,7 @@ class TeamsController < ApplicationController
 
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_team
     @team = Team.find(params[:id])

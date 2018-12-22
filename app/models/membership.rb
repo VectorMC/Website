@@ -1,5 +1,5 @@
 class Membership < ActiveRecord::Base
-  default_scope { order('memberships.id') }
+  default_scope {order('memberships.id')}
 
   include GraphQL::QLModel
 

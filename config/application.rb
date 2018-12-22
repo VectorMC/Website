@@ -7,10 +7,10 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module ORG
-    NAME = 'Smitdalt Network'
-    DOMAIN = 'example.net'
-    MC_IP = 'mine.my.craft'
-    EMAIL = 'support@wamp.com'
+  NAME = 'Smitdalt Network'
+  DOMAIN = 'example.net'
+  MC_IP = 'mine.my.craft'
+  EMAIL = 'support@wamp.com'
 end
 
 module Avicus
@@ -19,7 +19,7 @@ module Avicus
 
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/concerns)
-    config.autoload_paths +=  Dir["#{config.root}/app/daemons/**/"]
+    config.autoload_paths += Dir["#{config.root}/app/daemons/**/"]
 
     class << self
       def app_mode

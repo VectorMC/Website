@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
   def search
     list = User.select('username').where('username LIKE ?', "#{params[:query].gsub('_', '\_')}%").limit(5)
-    array = list.map { |u| u.username }
+    array = list.map {|u| u.username}
     if params[:query].downcase.start_with?('c')
       array.push('Console')
     end

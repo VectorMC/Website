@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   # Get all of the user's forum subscriptions
   def subscriptions
     user_s = Subscription.select(:discussion_id).where(:user_id => id)
-    user_s.map { |s| s.discussion_id }
+    user_s.map {|s| s.discussion_id}
   end
 
   # Authenticate the user with the supplied passwor.
@@ -126,7 +126,7 @@ class User < ActiveRecord::Base
   end
 
   # Get the user's avatar.
-  def avatar(size=128)
+  def avatar(size = 128)
     # parts = ('a'..'z').to_a.each_slice(6.5).to_a
     # letter = name[0..0].downcase
 
@@ -158,7 +158,7 @@ class User < ActiveRecord::Base
 
   # Get the highest rank a user has.
   def highest_priority_rank
-    highest = cached(:ranks).sort_by { |rank| rank.priority }.reverse.first
+    highest = cached(:ranks).sort_by {|rank| rank.priority}.reverse.first
     highest.nil? ? Rank.default_rank : highest
   end
 
@@ -173,7 +173,7 @@ class User < ActiveRecord::Base
 
   def custom_badge
     return '' if details.custom_badge_icon.nil? || details.custom_badge_icon.empty?
-    color = (details.custom_badge_color.nil? ||details.custom_badge_color.empty?) ? 'black' : details.custom_badge_color
+    color = (details.custom_badge_color.nil? || details.custom_badge_color.empty?) ? 'black' : details.custom_badge_color
     "<i class='fa #{details.custom_badge_icon}' rel='tooltip' style='color: #{color}' data-original-title='This is a custom badge! Purchase a donor rank to get one!'></i>"
   end
 

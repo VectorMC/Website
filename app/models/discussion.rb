@@ -119,7 +119,7 @@ class Discussion < ActiveRecord::Base
   def public_replies(user)
     revisions = Revision.select('reply_id').where(:discussion_id => id).where('reply_id IS NOT NULL').where(:active => 1)
 
-    ids = revisions.map { |r| r.reply_id }
+    ids = revisions.map {|r| r.reply_id}
     replies = Reply.where('`replies`.id IN (?)', ids)
 
     unless !replies.first.nil? && replies.first.can_view?(user)

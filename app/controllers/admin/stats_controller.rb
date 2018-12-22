@@ -17,7 +17,7 @@ class Admin::StatsController < Admin::IndexController
 
   def main
     @panels = [:weekday, :credits, :versions, :punishments, :appeals, :appeal_resolutions]
-    @panels.delete_if { |c| !current_user.has_permission?('admin:stats_controllers', :view, c, true) }
+    @panels.delete_if {|c| !current_user.has_permission?('admin:stats_controllers', :view, c, true)}
   end
 
   def weekday
@@ -31,8 +31,8 @@ class Admin::StatsController < Admin::IndexController
       if i[2]
         counts = counts.where('created_at < ?', Time.now - i[2])
       end
-      counts = counts.group_by { |s| [DateTime.parse(s.day1) + s.hour1] }.map { |k, v| [k.first, v.length] }
-      counts.sort_by { |count| count[0] }
+      counts = counts.group_by {|s| [DateTime.parse(s.day1) + s.hour1]}.map {|k, v| [k.first, v.length]}
+      counts.sort_by {|count| count[0]}
       @weekday += [{:name => i[0], :data => counts}]
     end
 
@@ -94,8 +94,8 @@ class Admin::StatsController < Admin::IndexController
       @punishments['Console'] = v if u.nil?
     end
 
-    @punishments = @punishments.sort { |a, b| b[1] <=> a[1] }
-    @punishments_by_type = @punishments_by_type.sort { |a, b| b[1] <=> a[1] }
+    @punishments = @punishments.sort {|a, b| b[1] <=> a[1]}
+    @punishments_by_type = @punishments_by_type.sort {|a, b| b[1] <=> a[1]}
 
     render :layout => false
   end
@@ -120,7 +120,7 @@ class Admin::StatsController < Admin::IndexController
       @appeals_by_staff['Console'] += 1 if appeal.punishment.staff.nil?
     end
 
-    @appeals_by_type = @appeals_by_type.sort { |a, b| b[1] <=> a[1] }
+    @appeals_by_type = @appeals_by_type.sort {|a, b| b[1] <=> a[1]}
 
     render :layout => false
   end
@@ -147,8 +147,8 @@ class Admin::StatsController < Admin::IndexController
       end
     end
 
-    @appeals_denied_by_staff = @appeals_denied_by_staff.sort { |a, b| b[1] <=> a[1] }
-    @appeals_accepted_by_staff = @appeals_accepted_by_staff.sort { |a, b| b[1] <=> a[1] }
+    @appeals_denied_by_staff = @appeals_denied_by_staff.sort {|a, b| b[1] <=> a[1]}
+    @appeals_accepted_by_staff = @appeals_accepted_by_staff.sort {|a, b| b[1] <=> a[1]}
 
     render :layout => false
   end

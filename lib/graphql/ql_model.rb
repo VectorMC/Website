@@ -189,21 +189,21 @@ module GraphQL::QLModel
     # we must refer directly to the built-in GraphQL scalar types
 
     case db_type
-      when :integer
-        GraphQL::INT_TYPE
-      when :boolean
-        GraphQL::BOOLEAN_TYPE
-      when :string
-        GraphQL::STRING_TYPE
-      when :text
-        GraphQL::STRING_TYPE
-      when :decimal
-        GraphQL::FLOAT_TYPE
-      when :datetime
-        Types::Scalar::DateTimeType
-      else
-        puts 'Unknown type: ' + db_type.to_s
-        GraphQL::STRING_TYPE
+    when :integer
+      GraphQL::INT_TYPE
+    when :boolean
+      GraphQL::BOOLEAN_TYPE
+    when :string
+      GraphQL::STRING_TYPE
+    when :text
+      GraphQL::STRING_TYPE
+    when :decimal
+      GraphQL::FLOAT_TYPE
+    when :datetime
+      Types::Scalar::DateTimeType
+    else
+      puts 'Unknown type: ' + db_type.to_s
+      GraphQL::STRING_TYPE
     end
   end
 

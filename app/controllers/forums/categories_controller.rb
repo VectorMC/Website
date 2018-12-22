@@ -8,7 +8,7 @@ class Forums::CategoriesController < Forums::IndexController
     @discussions = Discussion.where(category_id: @category.id)
     unless params[:tag].blank?
       revisions = Revision.select(:discussion_id).where(tag: params[:tag])
-      ids = revisions.map { |r| r.discussion_id }
+      ids = revisions.map {|r| r.discussion_id}
       @discussions = @discussions.where('id IN (?)', ids)
     end
     @discussions = @discussions.order('stickied DESC,updated_at DESC').paginate(:page => params[:page], :per_page => 25)

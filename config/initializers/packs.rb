@@ -97,14 +97,14 @@ class Packs
   # Colors
   COLORS = %w(AliceBlue Aqua Aquamarine Blue BlueViolet Brown CadetBlue Coral CornflowerBlue Cyan DarkBlue DarkCyan DarkGoldenRod DarkGray DarkGrey DarkGreen DarkMagenta DarkOliveGreen DarkOrange DarkRed DarkSeaGreen DarkSlateBlue DarkSlateGray DarkSlateGrey DarkTurquoise DarkViolet DeepPink DeepSkyBlue DimGray DimGrey DodgerBlue ForestGreen Gold GoldenRod Gray Grey Green GreenYellow HotPink IndianRed Lavender LavenderBlush LawnGreen LightBlue LightCoral LightCyan LightGoldenRodYellow LightGray LightGrey LightGreen LightPink LightSeaGreen LightSkyBlue LightSlateGray LightSlateGrey LightSteelBlue LightYellow Lime LimeGreen Magenta MediumAquaMarine MediumBlue MediumPurple MediumSeaGreen MediumSlateBlue MediumSpringGreen MediumTurquoise MediumVioletRed MidnightBlue MintCream Navy Olive OliveDrab Orange OrangeRed PaleGoldenRod PaleGreen PaleTurquoise PaleVioletRed Pink PowderBlue Purple RebeccaPurple Red RosyBrown RoyalBlue SaddleBrown SandyBrown SeaGreen Silver SkyBlue SlateBlue SlateGray SlateGrey SpringGreen SteelBlue Tan Teal Turquoise Violet Yellow YellowGreen)
   BASIC = %w(Red Yellow Blue Green Black)
-  BLUE = COLORS.select { |color| color.include?('Blue') || color.include?('Aqua') || color.include?('Cyan') || color.include?('Navy') || color.include?('Coral') || color.include?('Teal') || color.include?('Turquoise') }
-  RED = COLORS.select { |color| color.include?('Red' || color.include?('Brick')) }
-  GREEN = COLORS.select { |color| color.include?('Green') || color.include?('Lime') || color.include?('Mint') || color.include?('Olive') }
-  GRAY = COLORS.select { |color| color.include?('Gray') || color.include?('Silver') || color.include?('Grey') }
-  ORANGE = COLORS.select { |color| color.include?('Orange') || color.include?('Gold') }
-  PINK_PURPLE = COLORS.select { |color| color.include?('Magenta') || color.include?('Pink') || color.include?('Purple') || color.include?('Lavender') || color.include?('Violet') }
-  BROWN_TAN = COLORS.select { |color| color.include?('Brown') || color.include?('Tan') }
-  YELLOW = COLORS.select { |color| color.include?('Yellow') }
+  BLUE = COLORS.select {|color| color.include?('Blue') || color.include?('Aqua') || color.include?('Cyan') || color.include?('Navy') || color.include?('Coral') || color.include?('Teal') || color.include?('Turquoise')}
+  RED = COLORS.select {|color| color.include?('Red' || color.include?('Brick'))}
+  GREEN = COLORS.select {|color| color.include?('Green') || color.include?('Lime') || color.include?('Mint') || color.include?('Olive')}
+  GRAY = COLORS.select {|color| color.include?('Gray') || color.include?('Silver') || color.include?('Grey')}
+  ORANGE = COLORS.select {|color| color.include?('Orange') || color.include?('Gold')}
+  PINK_PURPLE = COLORS.select {|color| color.include?('Magenta') || color.include?('Pink') || color.include?('Purple') || color.include?('Lavender') || color.include?('Violet')}
+  BROWN_TAN = COLORS.select {|color| color.include?('Brown') || color.include?('Tan')}
+  YELLOW = COLORS.select {|color| color.include?('Yellow')}
 
   COLOR_BASIC_PACK = Pack.new('Colors-Basic', BASIC, :color_packs, :basic)
   COLOR_BLUE_PACK = Pack.new('Colors-Blue', BLUE, :color_packs, :blue)

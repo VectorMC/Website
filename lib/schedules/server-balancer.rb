@@ -26,7 +26,7 @@ schedule.every('1m') do
     ratio = online / total
 
     # Server could be restarting
-    offline_servers.delete_if { |s| s.seconds_since_online != nil && s.seconds_since_online < 120 }
+    offline_servers.delete_if {|s| s.seconds_since_online != nil && s.seconds_since_online < 120}
 
     next if ratio == 0
     # If the ratio of playing players to available slots is at or more than 80%.

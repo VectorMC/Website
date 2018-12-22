@@ -12,8 +12,8 @@ require File.join(root, "config", "environment")
 
 $run = true
 
-trap ('TERM') { $run = false }
-trap ('INT') { $run = false }
+trap ('TERM') {$run = false}
+trap ('INT') {$run = false}
 
 Rails.logger.auto_flushing = true if Rails.logger.respond_to?(:auto_flushing)
 

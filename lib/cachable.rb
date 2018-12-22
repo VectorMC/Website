@@ -3,7 +3,7 @@ module Cachable
   # If the result is not in the cache, it will be grabbed and stored in the cache.
   def cached_for(duration, field, *args)
     copy = *args
-    args.each_with_index { |arg, i| copy[i] = arg.duplicable? ? arg.dup : arg } # creates a duplicate of *args
+    args.each_with_index {|arg, i| copy[i] = arg.duplicable? ? arg.dup : arg} # creates a duplicate of *args
     key = get_key(field, *copy)
     value = $redis.get(key) || cache(field, self.send(field, *args), duration, *copy)
     YAML.load(value)

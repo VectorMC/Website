@@ -124,7 +124,7 @@ class ApplicationController < ActionController::Base
 
   def setup
     if Avicus::Application.for_users?
-      timezone = ActiveSupport::TimeZone[-cookies[:time_zone].to_i/60]
+      timezone = ActiveSupport::TimeZone[-cookies[:time_zone].to_i / 60]
       Time.use_zone(timezone) do
         p Time.zone.now
       end
@@ -150,12 +150,12 @@ class ApplicationController < ActionController::Base
     unless pass
       if message.is_a?(Symbol)
         case message
-          when :page
-            message = 'You do not have permission to access this page.'
-          when :action
-            message = 'You do not have permission to perform this operation.'
-          when :login
-            message = 'You must be logged in to access this page.'
+        when :page
+          message = 'You do not have permission to access this page.'
+        when :action
+          message = 'You do not have permission to perform this operation.'
+        when :login
+          message = 'You must be logged in to access this page.'
         end
       end
       flash[:error] = message
@@ -206,11 +206,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  rescue_from Exception, with: lambda { |exception| render_error 500, exception }
-  rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, with: lambda { |exception| render_error 404, exception }
+  rescue_from Exception, with: lambda {|exception| render_error 500, exception}
+  rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, with: lambda {|exception| render_error 404, exception}
 
   def render_error(status, exception)
-    @id = (0...8).map { (65 + rand(26)).chr }.join
+    @id = (0...8).map {(65 + rand(26)).chr}.join
     @exception = exception
     log('------- ' + @id + ' -------') if exception != nil
     log(exception) if exception != nil

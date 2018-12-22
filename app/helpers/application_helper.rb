@@ -17,7 +17,7 @@ module ApplicationHelper
       end
       users << User.select(:id, :uuid, :username).find_by_id(id)
     end
-    users.sort_by! { |user| user.cached(:highest_priority_rank).priority }.reverse!
+    users.sort_by! {|user| user.cached(:highest_priority_rank).priority}.reverse!
 
     $avicus['online'] = times
 
@@ -32,12 +32,12 @@ module ApplicationHelper
   end
 
   # Get an avatar sized image for a user.
-  def avatar_tag(user, size=32, **kwargs)
+  def avatar_tag(user, size = 32, **kwargs)
     image_tag(avatar_url(user, size), **kwargs)
   end
 
   # Get the link to a users avatar with an optional size.
-  def avatar_url(user, size=32)
+  def avatar_url(user, size = 32)
     if user.cached(:details).avatar == 'Gravatar' && user.cached(:details).email_status == 1
       md5 = Digest::MD5.hexdigest(user.cached(:details).email)
       URI.encode "https://www.gravatar.com/avatar/#{md5}?s=#{size}&default=mm"
@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   # Get an image with an href to a user.
-  def link_avatar_to_user(user, size=32, **kwargs)
+  def link_avatar_to_user(user, size = 32, **kwargs)
     link_to(user_path(user), :style => 'text-decoration: none') do
       avatar_tag(user, size, :class => 'img-rounded', **kwargs)
     end
@@ -56,7 +56,7 @@ module ApplicationHelper
   # Get a link to a user profile with the correct link color.
   def link_to_user(user, **args, &block)
     color = nil
-    user.cached(:ranks).sort_by { |rank| rank.cached(:priority) }.reverse.each do |rank|
+    user.cached(:ranks).sort_by {|rank| rank.cached(:priority)}.reverse.each do |rank|
       html = rank.cached(:html_color)
       if html.present? && html != 'none'
         color = html
@@ -107,7 +107,7 @@ module ApplicationHelper
 
   # Convert a duration between two times to a clock format.
   def time_between_clock(before, after)
-    time = (after- before).seconds
+    time = (after - before).seconds
     Time.at(time).utc.strftime('%H:%M:%S')
   end
 
@@ -136,7 +136,7 @@ module ApplicationHelper
       return '0 seconds'
     end
     if precise
-      return [[60, :second], [60, :minute], [24, :hour], [1000, :day]].map { |count, name|
+      return [[60, :second], [60, :minute], [24, :hour], [1000, :day]].map {|count, name|
         if secs > 0
           secs, n = secs.divmod(count)
           if n.to_i != 0
@@ -152,16 +152,16 @@ module ApplicationHelper
   # Determine a human-friendly version of a permission value for the dropdown menu.
   def determine_text(opt)
     case opt
-      when :true
-        return 'Yes'
-      when :false
-        return 'No'
-      when :flow
-        return 'Flow to Next'
-      when :own
-        return 'Own'
-      else
-        return opt.to_s.capitalize.gsub('_', ' ')
+    when :true
+      return 'Yes'
+    when :false
+      return 'No'
+    when :flow
+      return 'Flow to Next'
+    when :own
+      return 'Own'
+    else
+      return opt.to_s.capitalize.gsub('_', ' ')
     end
   end
 
@@ -185,7 +185,7 @@ module ApplicationHelper
   def titleize(str)
     str
         .gsub('_', ' ')
-        .split(/\s+/).map { |word| word.slice(0, 1).capitalize + word.slice(1..-1) }.join(' ')
+        .split(/\s+/).map {|word| word.slice(0, 1).capitalize + word.slice(1..-1)}.join(' ')
         .gsub(/(mc)/i, 'MC')
         .gsub(/(id)/i, 'ID')
   end
@@ -206,19 +206,19 @@ module ApplicationHelper
   def holiday_logo
     day = Date.today.in_time_zone(Time.zone).day
     case Date.today.in_time_zone(Time.zone).month
-      when 1
-        return 'new-years' if day == 1
-        return 'au' if day == 26
-      when 4
-        return 'green' if day == 22
-      when 7
-        return 'ca' if day == 1
-        return 'us' if day == 4
-      when 9
-        return 'mx' if day == 16
-      when 12
-        return 'christmas' if day == 25
-        return 'new-years' if day == Date.today.in_time_zone(Time.zone).end_of_month.day
+    when 1
+      return 'new-years' if day == 1
+      return 'au' if day == 26
+    when 4
+      return 'green' if day == 22
+    when 7
+      return 'ca' if day == 1
+      return 'us' if day == 4
+    when 9
+      return 'mx' if day == 16
+    when 12
+      return 'christmas' if day == 25
+      return 'new-years' if day == Date.today.in_time_zone(Time.zone).end_of_month.day
     end
 
     return 'blue'

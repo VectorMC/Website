@@ -69,6 +69,7 @@ class Admin::AnnouncementsController < Admin::IndexController
   end
 
   private
+
   def set_announcement
     @announcement = Announcement.find(params[:id] || params[:announcement_id])
   end

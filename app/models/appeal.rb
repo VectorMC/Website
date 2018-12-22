@@ -98,22 +98,22 @@ class Appeal < ActiveRecord::Base
     text = ''
     owner = own ? 'Your' : "#{self.actions.first.user.username}'s"
     case action
-      when :open
-        text = "An appeal has been opened by #{actor.username}, and your attention is required."
-      when :close
-        text = "#{owner} appeal has been closed by #{actor.username}."
-      when :lock
-        text = "#{owner} appeal has been locked by #{actor.username}."
-      when :appeal
-        text = "#{owner} appeal has been appealed by #{actor.username}."
-      when :escalate
-        text = "#{owner} appeal has been escalated by #{actor.username}, and your attention is required."
-      when :de_escalate
-        text = "#{owner} appeal has been de-escalated by #{actor.username}."
-      when :comment
-        text = "#{owner} appeal has a new comment by #{actor.username}."
-      when :staff_note
-        text = "#{owner} appeal has a new staff note by #{actor.username}."
+    when :open
+      text = "An appeal has been opened by #{actor.username}, and your attention is required."
+    when :close
+      text = "#{owner} appeal has been closed by #{actor.username}."
+    when :lock
+      text = "#{owner} appeal has been locked by #{actor.username}."
+    when :appeal
+      text = "#{owner} appeal has been appealed by #{actor.username}."
+    when :escalate
+      text = "#{owner} appeal has been escalated by #{actor.username}, and your attention is required."
+    when :de_escalate
+      text = "#{owner} appeal has been de-escalated by #{actor.username}."
+    when :comment
+      text = "#{owner} appeal has a new comment by #{actor.username}."
+    when :staff_note
+      text = "#{owner} appeal has a new staff note by #{actor.username}."
     end
 
     text

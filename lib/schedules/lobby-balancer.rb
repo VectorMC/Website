@@ -26,7 +26,7 @@ schedule.every('1m') do
   next if ratio == 0
 
   # Server could be restarting
-  offline_lobbies.delete_if { |s| s.seconds_since_online != nil && s.seconds_since_online < 120 }
+  offline_lobbies.delete_if {|s| s.seconds_since_online != nil && s.seconds_since_online < 120}
 
   # If the ratio of lobby players to available slots is at or more 80%.
   # We also keep 2 lobbies online at all times.

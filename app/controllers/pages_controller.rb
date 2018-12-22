@@ -31,7 +31,7 @@ class PagesController < ApplicationController
     require 'will_paginate/array'
     @repos = Avicus::Application.config.repos.dup
 
-    @repos.delete_if { |name, repo| !is_in_cache("repo.#{repo[:name]}-#{repo[:branch].blank? ? 'master' : repo[:branch]}") }
+    @repos.delete_if {|name, repo| !is_in_cache("repo.#{repo[:name]}-#{repo[:branch].blank? ? 'master' : repo[:branch]}")}
 
     @repo = params[:repo] ? params[:repo] : @repos.first[0]
 

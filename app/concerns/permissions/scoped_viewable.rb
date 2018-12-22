@@ -34,6 +34,6 @@ module Permissions::ScopedViewable
 
   # Checks if a user has permission to view any of the fields defined in the `perm_fields` hash.
   def can_view_any?(user)
-    (self.class.perm_fields.collect { |f| f.to_s }).any? { |field| can_view?(user, field) }
+    (self.class.perm_fields.collect {|f| f.to_s}).any? {|field| can_view?(user, field)}
   end
 end

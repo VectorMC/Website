@@ -17,7 +17,7 @@ class Forums::DiscussionsController < Forums::IndexController
 
     @all = @discussion.public_replies current_user
 
-    @sanctioned = @all.to_a.select { |r| r.revision.sanctioned? }
+    @sanctioned = @all.to_a.select {|r| r.revision.sanctioned?}
 
     @replies = @all.paginate(:page => params[:page], :per_page => 20).order('created_at')
 

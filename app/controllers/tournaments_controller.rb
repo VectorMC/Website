@@ -65,6 +65,7 @@ class TournamentsController < ApplicationController
   end
 
   private
+
   def set_tournament
     @tournament = Tournament.find_by_slug(params[:id])
   end
