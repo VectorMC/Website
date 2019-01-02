@@ -65,7 +65,7 @@ class UserDetail < ActiveRecord::Base
   end
 
   validates :steam, :skype, :facebook, :twitch, :twitter, :github, :instagram,
-            :allow_blank => true, :format => {:with => /\A[0-9a-zA-Z-_.]*\Z/, :message => 'contains invalid characters.'}
+            :allow_blank => true, :format => {:with => /\A[0-9a-zA-Z\-_.]*\Z/, :message => 'contains invalid characters.'}
 
   validates :steam,
             :length => {:maximum => 32}
