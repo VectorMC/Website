@@ -28,7 +28,7 @@ module ApplicationHelper
   def boolean_to_symbol(val, hide_if_false = false)
     css = val ? 'fa-check-square-o' : 'fa-times'
     css = '' if !val && hide_if_false
-    "<i class='#{css}'></i>".html_safe
+    "<i class='fa #{css}'></i>".html_safe
   end
 
   # Get an avatar sized image for a user.
