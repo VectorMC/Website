@@ -28,6 +28,7 @@
       %header#masthead
         = render 'peek/bar'
         = render 'layouts/navigation_bar'
+      / Note - The above line 'layouts/navigation_bar' does not work in api(rails api) mode, commenting out makes 404 render successfully, there is no sessions in api mode so the login/register is causing the site to error out
 
       / Main Content
       #content{:role => 'main'}

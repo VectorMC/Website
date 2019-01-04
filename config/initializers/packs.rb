@@ -1,6 +1,6 @@
 class Packs
   # Icons
-  BASIC = {
+  BASIC_ICONS = {
       'Wrench': 'fa-wrench',
       'User X': 'fa-user-times',
       'TV': 'fa-tv',
@@ -78,7 +78,7 @@ class Packs
       'Gift': 'fa-gift'
   }
 
-  ICON_BASIC_PACK = Pack.new('Icons-Basic', BASIC, :icon_packs, :basic)
+  ICON_BASIC_PACK = Pack.new('Icons-Basic', BASIC_ICONS, :icon_packs, :basic)
   ICON_HANDS_PACK = Pack.new('Icons-Hands', HANDS, :icon_packs, :hands)
   ICON_MONEY_PACK = Pack.new('Icons-Money', MONEY, :icon_packs, :money)
   ICON_MEDICAL_PACK = Pack.new('Icons-Medical', MEDICAL, :icon_packs, :medical)
@@ -96,7 +96,7 @@ class Packs
 
   # Colors
   COLORS = %w(AliceBlue Aqua Aquamarine Blue BlueViolet Brown CadetBlue Coral CornflowerBlue Cyan DarkBlue DarkCyan DarkGoldenRod DarkGray DarkGrey DarkGreen DarkMagenta DarkOliveGreen DarkOrange DarkRed DarkSeaGreen DarkSlateBlue DarkSlateGray DarkSlateGrey DarkTurquoise DarkViolet DeepPink DeepSkyBlue DimGray DimGrey DodgerBlue ForestGreen Gold GoldenRod Gray Grey Green GreenYellow HotPink IndianRed Lavender LavenderBlush LawnGreen LightBlue LightCoral LightCyan LightGoldenRodYellow LightGray LightGrey LightGreen LightPink LightSeaGreen LightSkyBlue LightSlateGray LightSlateGrey LightSteelBlue LightYellow Lime LimeGreen Magenta MediumAquaMarine MediumBlue MediumPurple MediumSeaGreen MediumSlateBlue MediumSpringGreen MediumTurquoise MediumVioletRed MidnightBlue MintCream Navy Olive OliveDrab Orange OrangeRed PaleGoldenRod PaleGreen PaleTurquoise PaleVioletRed Pink PowderBlue Purple RebeccaPurple Red RosyBrown RoyalBlue SaddleBrown SandyBrown SeaGreen Silver SkyBlue SlateBlue SlateGray SlateGrey SpringGreen SteelBlue Tan Teal Turquoise Violet Yellow YellowGreen)
-  BASIC = %w(Red Yellow Blue Green Black)
+  BASIC_COLORS = %w(Red Yellow Blue Green Black)
   BLUE = COLORS.select {|color| color.include?('Blue') || color.include?('Aqua') || color.include?('Cyan') || color.include?('Navy') || color.include?('Coral') || color.include?('Teal') || color.include?('Turquoise')}
   RED = COLORS.select {|color| color.include?('Red' || color.include?('Brick'))}
   GREEN = COLORS.select {|color| color.include?('Green') || color.include?('Lime') || color.include?('Mint') || color.include?('Olive')}
@@ -106,7 +106,7 @@ class Packs
   BROWN_TAN = COLORS.select {|color| color.include?('Brown') || color.include?('Tan')}
   YELLOW = COLORS.select {|color| color.include?('Yellow')}
 
-  COLOR_BASIC_PACK = Pack.new('Colors-Basic', BASIC, :color_packs, :basic)
+  COLOR_BASIC_PACK = Pack.new('Colors-Basic', BASIC_COLORS, :color_packs, :basic)
   COLOR_BLUE_PACK = Pack.new('Colors-Blue', BLUE, :color_packs, :blue)
   COLOR_RED_PACK = Pack.new('Colors-Red', RED, :color_packs, :red)
   COLOR_GREEN_PACK = Pack.new('Colors-Green', GREEN, :color_packs, :green)

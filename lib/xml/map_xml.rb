@@ -9,7 +9,7 @@ class MapXml
 
   def initialize(path)
     @path = path
-    @path_remote = path.gsub($avicus['maps-path'], 'https://maps.#{ORG::NAME}/') # This may need to be configured depending on where your map images are stored
+    @path_remote = path.gsub($avicus['maps-path'], "https://maps.#{ORG::DOMAIN}/") # This may need to be configured depending on where your map images are stored
     @path_remote = URI.escape(@path_remote)
     @doc = Nokogiri::XML(File.open(path))
   end

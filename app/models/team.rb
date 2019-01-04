@@ -8,7 +8,7 @@ class Team < ActiveRecord::Base
   validates_size_of :tagline, :within => 1..32
   validates_size_of :tag, :within => 3..4
   validates :tag, :format => {:with => /\A[0-9a-zA-Z]*\Z/, :message => 'contains invalid characters.'}
-  validates :title, :format => {:with => /\A[0-9a-zA-Z-_ ]*\Z/, :message => 'contains invalid characters.'}
+  validates :title, :format => {:with => /\A[0-9a-zA-Z\-_ ]*\Z/, :message => 'contains invalid characters.'}
 
   validate :check_title_tag
 
