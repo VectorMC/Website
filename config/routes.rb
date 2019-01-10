@@ -12,7 +12,7 @@ unless ENV['daemon']
     end
 
     if Avicus::Application.app_mode == 'api'
-      post '', to: 'graphql#execute'
+      post '/api', to: 'graphql#execute'
       root 'pages#home_api'
     else
       # Peek
