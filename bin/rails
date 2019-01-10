@@ -22,6 +22,7 @@ when 'api'
   port = 3001
   pid = 'tmp/pids/api.pid'
 else
+  puts "--- MYSTERY ---"
   port = pid = nil
 end
 
